@@ -27,7 +27,7 @@ const props = defineProps(["country"]),
         </div>
         <div class="flex gap-1 text-sm">
           <span class="font-medium">Capital: </span>
-          <span class="dark:text-[#ebf4fb]">{{ capital.split("") }}</span>
+          <span class="dark:text-[#ebf4fb]">{{ capital }}</span>
         </div>
       </div>
     </div>
