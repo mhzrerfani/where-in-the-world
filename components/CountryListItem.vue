@@ -5,7 +5,7 @@ const props = defineProps(["country"]),
 
 <template>
   <div
-    class="flex flex-col bg-white w-[280px] h-[350px] shadow-md dark:bg-primary dark:text-white"
+    class="flex flex-col bg-white w-[280px] h-[340px] shadow-md dark:bg-primary dark:text-white"
   >
     <img
       :src="flags.png"
@@ -18,7 +18,7 @@ const props = defineProps(["country"]),
         <div class="flex gap-1 text-sm">
           <span class="font-medium">Population: </span>
           <span class="dark:text-[#ebf4fb]">
-            {{ population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "") }}
+            {{ population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}
           </span>
         </div>
         <div class="flex gap-1 text-sm">
@@ -27,7 +27,7 @@ const props = defineProps(["country"]),
         </div>
         <div class="flex gap-1 text-sm">
           <span class="font-medium">Capital: </span>
-          <span class="dark:text-[#ebf4fb]">{{ capital }}</span>
+          <span class="dark:text-[#ebf4fb]">{{ capital.split("") }}</span>
         </div>
       </div>
     </div>

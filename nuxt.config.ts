@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from "nuxt";
 
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss", "@vueuse/nuxt"],
+  modules: ["@nuxtjs/tailwindcss"],
   meta: {
     title: "Your Awesome Website",
     link: [
