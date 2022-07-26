@@ -1,6 +1,11 @@
 import { defineNuxtConfig } from "nuxt";
 
 export default defineNuxtConfig({
+  vue: {
+    config: {
+      devtools: false,
+    },
+  },
   modules: ["@nuxtjs/tailwindcss"],
   meta: {
     title: "Your Awesome Website",

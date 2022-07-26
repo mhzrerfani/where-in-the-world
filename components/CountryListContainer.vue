@@ -1,7 +1,9 @@
 <script setup>
+import { useRegionsFilter, useSearch, useSorted } from "../composables/states";
+import { useState, watch, onMounted } from "#imports";
+
 const { data: countries } = await useAsyncData("countries", () =>
-  $fetch(`https://restcountries.com/v3.1/all
-`)
+  $fetch(`https://restcountries.com/v3.1/all`)
 );
 const filteredRegion = useRegionsFilter(),
   search = useSearch(),
@@ -10,42 +12,43 @@ const allCountries = await JSON.parse(await JSON.stringify(countries.value));
 const filteredCountries = useState("filteredCountries", () => countries.value);
 
 const searchHandler = () => {
-    sorted.value = "Custom";
-    filteredCountries.value = allCountries
-      .filter((country) => {
-        return country.name.common
-          .toLowerCase()
-          .includes(search.value.toLowerCase());
-      })
-      .filter((country) => {
-        return filteredRegion.value
-          ? country.region == filteredRegion.value
-          : true;
-      });
-  },
-  regionFilterHandler = () => {
-    sorted.value = "Custom";
-    filteredCountries.value = allCountries
-      .filter((country) => {
-        return country.region == filteredRegion.value;
-      })
-      .filter((country) => {
-        return search.value
-          ? country.name.common
-              .toLowerCase()
-              .includes(search.value.toLowerCase())
-          : true;
-      });
-  },
-  sortingHandler = async () => {
-    filteredCountries.value = await JSON.parse(
-      await JSON.stringify(filteredCountries.value)
-    ).sort((a, b) => {
-      return sorted.value == "Population"
-        ? b.population - a.population
-        : a.name.common.localeCompare(b.name.common);
+  sorted.value = "Custom";
+
+  filteredCountries.value = allCountries
+    .filter((country) => {
+      return country.name.common
+        .toLowerCase()
+        .includes(search.value.toLowerCase());
+    })
+    .filter((country) => {
+      return filteredRegion.value
+        ? country.region == filteredRegion.value
+        : true;
     });
-  };
+};
+
+const regionFilterHandler = () => {
+  sorted.value = "Custom";
+  filteredCountries.value = allCountries
+    .filter((country) => {
+      return country.region == filteredRegion.value;
+    })
+    .filter((country) => {
+      return search.value
+        ? country.name.common.toLowerCase().includes(search.value.toLowerCase())
+        : true;
+    });
+};
+
+const sortingHandler = async () => {
+  filteredCountries.value = await JSON.parse(
+    await JSON.stringify(filteredCountries.value)
+  ).sort((a, b) => {
+    return sorted.value == "Population"
+      ? b.population - a.population
+      : a.name.common.localeCompare(b.name.common);
+  });
+};
 
 watch(search, searchHandler);
 

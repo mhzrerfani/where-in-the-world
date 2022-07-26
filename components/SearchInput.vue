@@ -1,4 +1,7 @@
 <script setup>
+import { watch } from "#imports";
+import { useSearch } from "../composables/states";
+
 const search = useSearch(),
   searchInput = ref("");
 

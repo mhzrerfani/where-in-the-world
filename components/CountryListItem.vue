@@ -25,9 +25,9 @@ const props = defineProps(["country"]),
           <span class="font-medium">Region: </span>
           <span class="dark:text-[#ebf4fb]">{{ region }}</span>
         </div>
-        <div class="flex gap-1 text-sm">
+        <div v-if="!!capital && capital.length > 0" class="flex gap-1 text-sm">
           <span class="font-medium">Capital: </span>
-          <span class="dark:text-[#ebf4fb]">{{ capital.split("") }}</span>
+          <span class="dark:text-[#ebf4fb]">{{ capital[0] }}</span>
         </div>
       </div>
     </div>

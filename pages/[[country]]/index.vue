@@ -5,6 +5,10 @@ const { data: countries } = await useFetch(
   `https://restcountries.com/v3.1/alpha/${route.params.country}`,
   { key: route.params.country }
 );
+
+if (!!countries && !!countries.value && countries.value.length > 0) {
+  console.log(countries.value[0]);
+}
 </script>
 
 <template>
@@ -33,7 +37,7 @@ const { data: countries } = await useFetch(
       </svg>
       <span>Back</span>
     </button>
-    <div v-for="(country, i) in countries" :key="i">
+    <div v-for="country in countries" :key="country.name.common">
       <CountryDetails :country="country" />
     </div>
   </div>

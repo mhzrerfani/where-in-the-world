@@ -52,13 +52,17 @@ const props = defineProps(["country"]),
               <span class="font-medium dark:text-white">Region: </span>
               <span class="dark:text-[#ebf4fb]">{{ region }}</span>
             </div>
-            <div class="flex gap-1 text-sm">
+            <div class="flex gap-1 text-sm" v-if="!!subregion">
               <span class="font-medium dark:text-white">Sub Region: </span>
               <span class="dark:text-[#ebf4fb]">{{ subregion }}</span>
             </div>
             <div class="flex gap-1 text-sm">
               <span class="font-medium dark:text-white">Capital: </span>
-              <span class="dark:text-[#ebf4fb]">{{ capital[0] }}</span>
+              <span
+                v-if="!!capital && capital.length > 0"
+                class="dark:text-[#ebf4fb]"
+                >{{ capital[0] }}</span
+              >
             </div>
           </div>
 
@@ -69,7 +73,10 @@ const props = defineProps(["country"]),
               </span>
               <span class="dark:text-[#ebf4fb]">{{ tld[0] }}</span>
             </div>
-            <div class="flex gap-1 text-sm">
+            <div
+              class="flex gap-1 text-sm"
+              v-if="!!country.currencies && country.currencies.length > 0"
+            >
               <span class="font-medium dark:text-white">Currencies: </span>
               <span class="dark:text-[#ebf4fb]">{{
                 country.currencies[Object.keys(country.currencies)[0]].name

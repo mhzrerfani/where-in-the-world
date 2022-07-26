@@ -1,4 +1,6 @@
 <script setup>
+import { useSorted } from "../composables/states";
+
 const regions = ["Asia", "Europe", "Americas", "Africa", "Oceania"];
 const sorting = ["Custom", "Alphabet", "Population"];
 </script>
