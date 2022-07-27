@@ -14,8 +14,10 @@ const sorting = ["Custom", "Alphabet", "Population"];
 </script>
 
 <template>
-  <div class="flex flex-col items-center w-full max-w-[1300px] mx-auto">
-    <div class="flex w-full items-center justify-between px-5">
+  <div class="flex flex-col items-center w-full max-w-[1300px] mx-auto pb-10">
+    <div
+      class="flex flex-col md:flex-row w-full items-center justify-between px-5"
+    >
       <SearchInput />
       <div class="flex gap-5">
         <BaseSelect

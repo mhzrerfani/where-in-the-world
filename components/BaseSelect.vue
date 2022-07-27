@@ -22,7 +22,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
-  background-image: url("data:image/svg+xml;utf8,<svg height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path stroke='white' fill='white' d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg height='30' viewBox='0 0 24 24' width='30' xmlns='http://www.w3.org/2000/svg'><path stroke='black' fill='white' d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   background-repeat: no-repeat;
   background-position-x: 95%;
   background-position-y: 50%;

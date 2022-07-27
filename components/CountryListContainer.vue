@@ -66,7 +66,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-5 w-full justify-between mt-8 px-5">
+  <div class="flex flex-wrap gap-5 w-full justify-center mt-8 px-5">
     <NuxtLink
       v-for="country in filteredCountries"
       :to="country.cca3"
