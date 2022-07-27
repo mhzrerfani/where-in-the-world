@@ -12,7 +12,7 @@ if (!!countries && !!countries.value && countries.value.length > 0) {
 </script>
 
 <template>
-  <div class="max-w-[1200px] mx-auto w-min lg:w-full">
+  <div class="max-w-[1300px] mx-auto w-min lg:w-full">
     <button
       class="flex items-center gap-2 bg-white dark:bg-primary py-1 px-5 w-min dark:text-white shadow-md mt-14 rounded-sm border border-zinc-600 mb-20"
       @click="navigateTo({ path: `/` })"

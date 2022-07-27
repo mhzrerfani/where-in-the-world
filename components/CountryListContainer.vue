@@ -11,53 +11,57 @@ const filteredRegion = useRegionsFilter(),
 const allCountries = await JSON.parse(await JSON.stringify(countries.value));
 const filteredCountries = useState("filteredCountries", () => countries.value);
 
-const searchHandler = () => {
+watch(search, async () => {
   sorted.value = "Custom";
 
   filteredCountries.value = allCountries
     .filter((country) => {
-      return country.name.common
-        .toLowerCase()
-        .includes(search.value.toLowerCase());
+      return search.value
+        ? country.name.common.toLowerCase().includes(search.value.toLowerCase())
+        : true;
     })
     .filter((country) => {
-      return filteredRegion.value
+      return filteredRegion.value === "All"
+        ? true
+        : filteredRegion.value
         ? country.region == filteredRegion.value
         : true;
     });
-};
+});
 
-const regionFilterHandler = () => {
+watch(filteredRegion, async () => {
   sorted.value = "Custom";
+
   filteredCountries.value = allCountries
     .filter((country) => {
-      return country.region == filteredRegion.value;
+      return filteredRegion.value == "All"
+        ? true
+        : country.region == filteredRegion.value;
     })
     .filter((country) => {
       return search.value
         ? country.name.common.toLowerCase().includes(search.value.toLowerCase())
         : true;
     });
-};
+});
 
-const sortingHandler = async () => {
+watch(sorted, async () => {
   filteredCountries.value = await JSON.parse(
     await JSON.stringify(filteredCountries.value)
   ).sort((a, b) => {
     return sorted.value == "Population"
       ? b.population - a.population
-      : a.name.common.localeCompare(b.name.common);
+      : sorted.value == "Alphabet"
+      ? a.name.common.localeCompare(b.name.common)
+      : true;
   });
-};
-
-watch(search, searchHandler);
-
-watch(filteredRegion, regionFilterHandler);
-
-watch(sorted, sortingHandler);
+});
 
 onMounted(() => {
   filteredCountries.value = countries;
+  sorted.value = "Custom";
+  filteredRegion.value = "All";
+  search.value = "";
 });
 </script>
 
