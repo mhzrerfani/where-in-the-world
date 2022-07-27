@@ -1,42 +1,23 @@
-# Nuxt 3 Minimal Starter
+# Where in the world
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+## a simple app to increase your knowledge of countries around the world
 
-## Setup
+- JavaScript (Vue) framework: [Nuxt](https://v3.nuxtjs.org/)
 
-Make sure to install the dependencies:
+- CSS framework: [tailwindcss](https://tailwindcss.com)
 
-```bash
-# yarn
-yarn install
+You can use this by downloading the repo and enter `npm install`, `npm generate` and `npm run dev` commands in your terminal.
 
-# npm
-npm install
+### Features
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+- Search Through list of countries
 
-## Development Server
+- Sort by country alphabet and population
 
-Start the development server on http://localhost:3000
+- Filter based on countries region
 
-```bash
-npm run dev
-```
+- Change website mode to dark and light
 
-## Production
+- See country details in its page
 
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+Have a beautiful day
