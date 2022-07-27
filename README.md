@@ -20,4 +20,16 @@ You can use this by downloading the repo and enter `npm install`, `npm generate`
 
 - See country details in its page
 
+## Build using Docker
+
+To make it easier for running the project in an isolated environment, I've provided a Dockerfile that
+you can build and run locally.
+In order to do so, please follow these commands:
+
+`docker build -t alibaba/country-client .`
+
+And then run using:
+
+`docker run --rm -p 3000:3000 alibaba/country-client:latest`
+
 Have a beautiful day
